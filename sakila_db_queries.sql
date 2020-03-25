@@ -103,3 +103,24 @@ WHERE language_id = (SELECT l.language_id FROM language AS l WHERE name = 'Engli
 AND (title LIKE 'K%'
 OR title LIKE 'Q%'); 
 
+-- Querying for all actors who appeared in the filem 'Alone Trip'
+SELECT actor_id, first_name, last_name
+FROM actor
+WHERE actor_id IN 
+	(SELECT actor_id
+		FROM film_actor
+        WHERE film_id = (SELECT film_id
+							FROM film
+                            WHERE title = 'Alone Trip'))
+ORDER BY last_name;
+
+-- Querying for the names and email address of all Canadian customers
+SELECT c.customer_id, c.first_name, c.last_name, c.email
+FROM customer c
+INNER JOIN address a 
+ON c.address_id = a.address_id
+INNER JOIN city ci
+ON a.city_id = ci.city_id
+WHERE country_id = (SELECT country_id
+					FROM Country
+					WHERE country = 'Canada');
