@@ -64,3 +64,10 @@ SELECT s.first_name, s.last_name, a.address
 FROM staff s 
 INNER JOIN address a
 ON s.address_id = a.address_id;
+
+-- Querying for the total payments accepted by each staff member
+SELECT s.staff_id, s.first_name, s.last_name, SUM(p.amount) AS total
+FROM staff s
+LEFT JOIN payment p
+ON p.staff_id = s.staff_id
+GROUP BY 1;
