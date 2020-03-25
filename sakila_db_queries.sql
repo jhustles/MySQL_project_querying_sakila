@@ -134,3 +134,23 @@ WHERE film_id IN (SELECT film_id
 											FROM category
                                             WHERE name LIKE '%family%'));
 
+-- Querying for the most frequently rented movies in DESC order
+SELECT f.title, COUNT(r.rental_date) AS total_rentals
+FROM film f 
+INNER JOIN inventory i
+ON f.film_id = i.film_id
+INNER JOIN rental r
+ON i.inventory_id = r.inventory_id
+GROUP BY 1
+ORDER BY 2 DESC, 1;
+
+-- Querying for how much business each store produced
+SELECT s.store_id, SUM(amount) AS Gross_Revenue
+FROM payment p
+INNER JOIN rental r
+ON p.rental_id = r.rental_id
+INNER JOIN inventory i
+ON i.inventory_id = r.inventory_id
+INNER JOIN store s
+ON s.store_id = i.store_id
+GROUP BY s.store_id;
