@@ -166,3 +166,18 @@ INNER JOIN country ctr
 ON cit.country_id = ctr.country_id;
 
 
+-- Querying for top 5 genres by revenue
+SELECT SUM(amount) AS 'Total Sales', c.name AS 'Genre'
+FROM payment p
+INNER JOIN rental r
+ON p.rental_id = r.rental_id
+INNER JOIN inventory i
+ON r.inventory_id = i.inventory_id
+INNER JOIN film_category fc
+ON i.film_id = fc.film_id
+INNER JOIN category c
+ON fc.category_id = c.category_id
+GROUP BY 2
+ORDER BY 1 DESC
+LIMIT 5;
+
