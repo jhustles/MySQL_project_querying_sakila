@@ -40,4 +40,16 @@ ADD description BLOB;
 ALTER TABLE actor
 DROP description;
 
+-- Querying for all actors last name and provide a total count for each
+SELECT last_name, COUNT(*) AS Ct
+FROM actor
+GROUP BY 1
+ORDER BY 1;
+
+-- Querying for all actors last name, and display last_name >= 2
+SELECT last_name, COUNT(*) AS Ct
+FROM actor
+GROUP BY 1
+HAVING Ct >= 2
+ORDER BY 1;
 
