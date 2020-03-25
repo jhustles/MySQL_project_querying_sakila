@@ -14,7 +14,7 @@ To access the same database I used, you’ll need to load data from a sample dat
 
 If you’re on a PC and used MySQL Installer to install MySQL, you may already have the Sakila database loaded. Before you do anything else, open MySQL workbench and examine the list of databases loaded on your computer:
 
-![list of databases](Images/list_of_databases.png)
+![list of databases](Images/list_of_dbs_with_sakila.png)
 
 If the **sakila** DB is on this list, congrats! You can run the following below in MySQL to use the Sakila database:
 
