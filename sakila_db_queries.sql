@@ -71,3 +71,28 @@ FROM staff s
 LEFT JOIN payment p
 ON p.staff_id = s.staff_id
 GROUP BY 1;
+
+-- Querying for the top 3 films that have the most actors
+SELECT f.film_id, f.title, f.release_year, COUNT(fa.film_id) AS num_of_actors
+FROM film f
+INNER JOIN film_actor fa
+ON fa.film_id = f.film_id
+GROUP BY 1
+ORDER BY 3 DESC
+LIMIT 3;
+
+-- Querying for the number of copies of the film 'Hunchback Impossible' that exists in the inventory system
+SELECT COUNT(*) AS num_of_film_copies
+FROM film f 
+INNER JOIN inventory i 
+ON f.film_id = i.film_id
+WHERE f.title = 'Hunchback Impossible';
+
+-- Querying for the total paid by each customer, ordered by total amount paid descending, then alphabetically by last name
+SELECT c.customer_id, c.first_name, c.last_name, SUM(p.amount) AS total_paid
+FROM customer c
+INNER JOIN payment p
+ON c.customer_id = p.customer_id
+GROUP BY 1
+ORDER BY 4 DESC, 1, 3;
+
