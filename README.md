@@ -1,5 +1,7 @@
 # Project: MySQL - Querying The Sakila Database
 
+![intro_pic](Images/intro_pic.jpg)
+
 There's no better way to learn than to practice. So I took this opportunity to develop MySQL Fundamentals.
 
 ### Prerequisites
@@ -22,3 +24,19 @@ use sakila;
 
 ## Viewing My MySQL Script
 * Please click on the "sakila_db_queries.sql" file on the GitHub Site to view. I've also provided a text file of my queries. Otherwise, you can clone or download my repository.
+
+## Sample Output:
+
+![top_rev_genres](Images/output_genres_toprev.jpg)
+
+![canada_cust](Images/output_canada_join_sub.jpg)
+
+
+## Author
+
+* **Johneson Giang** - *Individual Project* - [Github](https://github.com/jhustles)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
