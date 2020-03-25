@@ -197,3 +197,16 @@ GROUP BY 2
 ORDER BY 1 DESC
 LIMIT 5;
 
+-- Query the view
+SELECT *
+FROM top_five_genres;
+
+-- Deleting this view as I no longer need it
+DROP VIEW top_five_genres;
+
+-- For reference as I wrote each query
+SHOW CREATE TABLE store;
+SHOW CREATE TABLE staff;
+SHOW CREATE TABLE rental;
+SHOW CREATE TABLE payment;
+SHOW CREATE TABLE customer;
