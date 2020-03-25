@@ -53,3 +53,14 @@ GROUP BY 1
 HAVING Ct >= 2
 ORDER BY 1;
 
+-- Querying for actor HARPO WILLIAMS, and fix his name to GROUCHO WILLIAMS
+UPDATE actor
+SET first_name = 'HARPO'
+WHERE first_name = 'GROUCHO'
+AND last_name = 'WILLIAMS';
+
+--  Querying for all staff's first and last names, and addresses
+SELECT s.first_name, s.last_name, a.address
+FROM staff s 
+INNER JOIN address a
+ON s.address_id = a.address_id;
