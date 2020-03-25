@@ -96,3 +96,10 @@ ON c.customer_id = p.customer_id
 GROUP BY 1
 ORDER BY 4 DESC, 1, 3;
 
+--  Displayed the titles of movies starting with the letters `K` and `Q` whose language is English.
+SELECT title AS film_title
+FROM film
+WHERE language_id = (SELECT l.language_id FROM language AS l WHERE name = 'English')
+AND (title LIKE 'K%'
+OR title LIKE 'Q%'); 
+
