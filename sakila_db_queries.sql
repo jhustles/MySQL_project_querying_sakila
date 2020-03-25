@@ -154,3 +154,15 @@ ON i.inventory_id = r.inventory_id
 INNER JOIN store s
 ON s.store_id = i.store_id
 GROUP BY s.store_id;
+
+-- Querying for each store's ID, city, and country
+SELECT store_id, city, country
+FROM store s
+INNER JOIN address a
+ON s.address_id = a.address_id
+INNER JOIN city cit
+ON cit.city_id = a.city_id
+INNER JOIN country ctr
+ON cit.country_id = ctr.country_id;
+
+
