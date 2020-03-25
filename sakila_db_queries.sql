@@ -124,3 +124,13 @@ ON a.city_id = ci.city_id
 WHERE country_id = (SELECT country_id
 					FROM Country
 					WHERE country = 'Canada');
+
+-- Querying for all title of films that are in the family category
+SELECT title
+FROM film
+WHERE film_id IN (SELECT film_id
+					FROM film_category
+                    WHERE category_id IN (SELECT category_id
+											FROM category
+                                            WHERE name LIKE '%family%'));
+
